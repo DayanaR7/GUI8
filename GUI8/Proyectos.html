@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyectos - Metodologías Ágiles</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Estilos para el navbar */
+    .navbar {
+      background-color: #343a40;
+    }
+    .navbar-brand, .nav-link {
+      color: #ffffff !important;
+      font-weight: bold;
+    }
+    .navbar-nav .nav-link:hover {
+      color: #f8f9fa !important;
+      background-color: #495057;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    /* Efecto hover para los botones */
+    .card:hover {
+      transform: scale(1.05);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .card-title {
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">Metodologías Ágiles</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Inicio</a>
+          </li>
+         
+          <li class="nav-item">
+            <a class="nav-link" href="Trabajo.html">Trabajos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Proyectos.html">Proyectos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Servicios.html">Servicios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Contacto.html">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contenido principal de Proyectos -->
+  <div class="container mt-5">
+    <h1 class="text-center">Proyectos desarrollados utilizando Metodologías Ágiles</h1>
+    <p class="text-center">Aquí verás ejemplos de empresas que han utilizado metodologías ágiles como Scrum, Kanban y XP para sus proyectos.</p>
+
+    <!-- Botón para cargar proyectos -->
+    <div class="text-center mb-4">
+      <button id="btnMostrarProyectos" class="btn btn-primary">Mostrar Proyectos</button>
+    </div>
+
+    <!-- Contenedor de Proyectos -->
+    <div id="proyectosContainer" class="row">
+      <!-- Los proyectos se agregarán aquí dinámicamente con JS -->
+    </div>
+  </div>
+
+  <!-- Scripts de Bootstrap 4 y JS personalizado -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    document.getElementById('btnMostrarProyectos').addEventListener('click', function() {
+      const proyectosContainer = document.getElementById('proyectosContainer');
+
+      // Array de proyectos (esto es ficticio, pero puedes agregar más)
+      const proyectos = [
+        {
+          empresa: 'Google',
+          metodologia: 'Scrum',
+          descripcion: 'Google ha implementado Scrum en varios de sus equipos de desarrollo para garantizar entregas rápidas y colaboración continua.',
+          imagen: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/512px-Google_2015_logo.svg.png'
+        },
+        {
+          empresa: 'Amazon',
+          metodologia: 'Kanban',
+          descripcion: 'Amazon utiliza Kanban en sus equipos de logística y desarrollo de software, permitiendo una gestión de tareas altamente eficiente.',
+          imagen: 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg'
+        },
+        {
+          empresa: 'Spotify',
+          metodologia: 'XP (Extreme Programming)',
+          descripcion: 'Spotify ha adoptado XP para mejorar la calidad de su código a través de prácticas como pair programming y TDD (desarrollo dirigido por pruebas).',
+          imagen: 'https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg'
+        },
+        {
+          empresa: 'Microsoft',
+          metodologia: 'Scrum',
+          descripcion: 'Microsoft ha integrado Scrum en varios equipos para lanzar versiones iterativas de productos como Azure y Office.',
+          imagen: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg'
+        },
+        {
+          empresa: 'Tesla',
+          metodologia: 'Kanban',
+          descripcion: 'Tesla utiliza Kanban en sus líneas de producción para optimizar el flujo de trabajo y la fabricación de vehículos.',
+          imagen: 'https://upload.wikimedia.org/wikipedia/commons/b/bd/Tesla_Motors.svg'
+        }
+      ];
+
+      // Limpiar el contenedor antes de agregar proyectos
+      proyectosContainer.innerHTML = '';
+
+      // Agregar proyectos dinámicamente
+      proyectos.forEach(proyecto => {
+        const proyectoCard = `
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <img src="${proyecto.imagen}" class="card-img-top" alt="${proyecto.empresa}">
+              <div class="card-body">
+                <h5 class="card-title">${proyecto.empresa}</h5>
+                <p class="card-text"><strong>Metodología:</strong> ${proyecto.metodologia}</p>
+                <p class="card-text">${proyecto.descripcion}</p>
+              </div>
+            </div>
+          </div>
+        `;
+        proyectosContainer.innerHTML += proyectoCard;
+      });
+    });
+  </script>
+</body>
+</html>
